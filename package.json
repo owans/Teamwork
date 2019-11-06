@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "prestart": "node startMessage.js",
+    "start": "babel-node server.js",
+    "lint": "./node_modules/.bin/eslint --fix server.js"
   },
   "repository": {
     "type": "git",
@@ -26,18 +28,28 @@
   },
   "homepage": "https://github.com/owans/Teamwork#readme",
   "dependencies": {
-    "babel": "^6.23.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
     "dotenv-extended": "^2.5.0",
     "dotenv-parse-variables": "^0.2.3",
-    "eslint": "^6.6.0",
     "express": "^4.17.1",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "chalk": "^2.4.2",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.2",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.4",
-    "pg": "^7.12.1"
+    "nodemon": "^1.19.4"
   }
 }
