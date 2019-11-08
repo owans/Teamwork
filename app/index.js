@@ -1,6 +1,9 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const morgan = require('morgan');
 const cors = require('cors');
+const initDB = require('../database/initDB');
 
 module.exports = () => {
     const app = express();
@@ -11,8 +14,10 @@ module.exports = () => {
 
     app.use(morgan('tiny'));
 
+    initDB();
+
     app.get(`${baseURL}/`, function(req, res){
-        res.send('welcome to teamwork API');
+        res.json({message: 'welcome to teamwork API'});
     });
 
     return app;
